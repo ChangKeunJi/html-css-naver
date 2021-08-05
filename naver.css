@@ -1,12 +1,18 @@
-/* ========== 헤더 ========== */
-
-div#header-center {
-  margin: 0 auto;
-  width: 1080px;
+* {
+  box-sizing: border-box;
 }
 
-#header-search a {
-  text-decoration: none;
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/** ========== 헤더 ========== */
+
+.center-align {
+  margin: 0 auto;
+  width: 1080px;
 }
 
 #header-search h1 {
@@ -16,10 +22,25 @@ div#header-center {
   background-image: url(./images/sp_search.png);
   background-position: -4px -4px;
   background-repeat: no-repeat;
+  position: relative;
+  top: -6px;
 }
 
-#header-search h1 span {
-  display: none;
+#logo-naver {
+  text-decoration: none;
+}
+
+#logo-naver::before {
+  display: inline-block;
+  width: 222px;
+  height: 52px;
+  background-position: 0 -158px;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  content: "";
+  /* a tag 안 span을 블라인드 처리하니 a tag의 공간 역시 남지 않아 클릭을 할 수 없었다. 
+     before로 빈 공간을 생성해내 클릭할 수 있게 만들어 준다. 
+  */
 }
 
 #header-search fieldset {
@@ -27,14 +48,92 @@ div#header-center {
   height: 49px;
   display: inline-block;
   margin-left: 20px;
-  padding-top: 12px;
-  padding-left: 10px;
-  padding-bottom: 12px;
-  padding-right: 0;
+  padding: 12px 0 12px 10px;
   border: 2px solid #03cf5d;
+  position: relative;
 }
 
-/* ======== 공통 ========= */
+#header-search fieldset input {
+  border: none;
+  outline: none;
+  width: 90%;
+}
+
+#header-search fieldset button {
+  top: -2px;
+  right: -2px;
+  width: 49px;
+  height: 49px;
+  border: none;
+  padding: 0;
+  background: #03cf5d;
+  position: absolute;
+}
+
+.search-icon {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-image: url("./images/sp_search.png");
+  background-position: -3px -60px;
+  background-repeat: no-repeat;
+  /* 정중앙에 맞추어주기 위해서 margin 사용. 다른 방법도 많음. */
+  margin: 14px;
+}
+
+/** ======== nav ========= */
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav li {
+  /* list를 가로로 정렬하게 해준다. */
+  display: inline-block;
+}
+
+nav li span:first-child {
+  height: 16px;
+  display: inline-block;
+  background-image: url("./images/sp_nav.png");
+  background-repeat: no-repeat;
+  margin-left: 14px;
+}
+
+nav li:first-child span:first-child {
+  width: 27px;
+  background-position: 0 -285px;
+  margin-left: 0;
+}
+
+nav li:nth-child(2) span:first-child {
+  width: 27px;
+  background-position: -279px -52px;
+}
+
+nav li:nth-child(3) span:first-child {
+  width: 40px;
+  background-position: -100px -182px;
+}
+
+nav li:nth-child(4) span:first-child {
+  width: 40px;
+  background-position: -101px -156px;
+}
+
+nav li:nth-child(5) span:first-child {
+  width: 26px;
+  background-position: -279px -156px;
+}
+
+nav li:nth-child(6) span:first-child {
+  width: 25px;
+  background-position: -70px -285px;
+}
+
+/** ======== 공통 ========= */
 
 .blind {
   position: absolute;
