@@ -8,6 +8,15 @@ body {
   padding: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 /** ========== 헤더 ========== */
 
 header {
@@ -57,7 +66,7 @@ header {
 
 #header-search {
   clear: both;
-  padding-top: 9px;
+  padding-top: 30px;
 }
 
 #header-search fieldset {
@@ -258,6 +267,7 @@ main {
   display: inline-block;
   width: 100%;
   /* margin collapse 를 막기 위해서 */
+  background-color: rgb(224, 224, 224);
 }
 
 #main-center {
@@ -265,21 +275,27 @@ main {
   width: 1100px;
 }
 
-main div {
-  border: 0.1px solid red;
+/** ========= 메인 - 1 ===========  */
+
+#main-first-block {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
 }
 
-/** ========= 메인 - 1 ===========  */
+/* 두 inline-block 요소의 간격을 없애주기 위해서 float: left 를 사용했다. float의 값을 설정해 준다면, display: inline-block이 필요없다. 자동으로 block이 되기 때문이다. 자식 요소가 float 값을 가질 때 붕 떠버리기 때문에 부모가 자식들을 담기 위해서는 block formatting context에 근거해 inline-block width 100%으로 설정해준다.  */
 
 #main-ad {
   display: inline-block;
   width: 740px;
   height: 120px;
   background-color: beige;
+  /* float: left; */
 }
 
 #main-login {
   display: inline-block;
+  /* float: left; */
   width: 332px;
   height: 120px;
   vertical-align: top;
@@ -288,16 +304,62 @@ main div {
 
 /** ========== 메인 - 2 ============  */
 
+#main-second-block-1 {
+  width: 740px;
+}
+
+#main-second-block-2 {
+  width: 332px;
+  vertical-align: top;
+}
+
 #main-ytn {
   display: inline-block;
   width: 740px;
   height: 46px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+#main-ytn h3,
+#main-ytn ol {
+  display: inline-block;
 }
 
 #main-newsstand {
   display: inline-block;
   width: 740px;
   height: 246px;
+  background-color: white;
+}
+
+#main-newsstand h3 {
+  height: 45px;
+  border-bottom: 1px solid lightgrey;
+}
+
+#main-newsstand ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  width: 100%;
+}
+
+#main-newsstand li {
+  float: left;
+  width: calc(100% / 6);
+  height: 67px;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  position: relative;
+}
+
+#main-newsstand li img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #main-weather {
@@ -315,35 +377,60 @@ main div {
 
 /** ======== 메인-3 ========  */
 
-#main-category {
+#main-third-block {
   display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+#main-category {
+  float: left;
   width: 740px;
   height: 837px;
   background-color: white;
+  margin-bottom: 8px;
+  margin-right: 5px;
 }
 
 #main-shopping {
-  display: inline-block;
-  width: 740px;
-  height: 837px;
+  float: left;
+  width: 330px;
+  height: 882px;
   background-color: white;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+
+#main-shopping iframe {
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
 }
 
 /** ======== 메인-4 =========  */
 
-#main-event {
+#main-fourth-block {
   display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
+
+#main-event {
+  float: left;
   width: 740px;
   height: 130px;
   background-color: white;
+  margin-right: 5px;
+  /* margin-bottom: 8px; */
 }
 
 #main-third-ad {
-  display: inline-block;
+  float: left;
   width: 332px;
   height: 130px;
   background-color: beige;
   vertical-align: bottom;
+  /* margin-bottom: 8px; */
 }
 
 /** ======== 공통 ========= */
@@ -355,6 +442,10 @@ main div {
   height: 1px;
   margin: -1px;
   overflow: hidden;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .relative {
